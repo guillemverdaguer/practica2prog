@@ -19,18 +19,22 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
         }
         TascaManteniment.TipusTascaManteniment tipusEnum;
         try {
-            tipusEnum = TascaManteniment.TipusTascaManteniment.VvalueOf(tipus);
+            tipusEnum = TascaManteniment.TipusTascaManteniment.valueOf(tipus);
         } catch (IllegalArgumentException e) {
             throw new ExcepcioCamping("No existeix la tasca: " + tipus);
         }
         TascaManteniment tascaManteniment = new TascaManteniment(num, tipus, allotjament, data, dies);
         tasquesManteniment.add(tascaManteniment);
-        Allotjament.
+        allotjament.tancarAllotjament(tascaManteniment);
     }
 
     @Override
     public void completarTascaManteniment(TascaManteniment tasca) throws ExcepcioCamping {
-
+        if(!tasquesManteniment.contains(tasca)){
+            throw new ExcepcioCamping("Actualment aquest allotjament no té tasques de manteniment");
+        }
+        tasca.getAllotjament().obrirAllotjament();
+        tasquesManteniment.remove(tasca);
     }
 
     @Override
