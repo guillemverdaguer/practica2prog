@@ -51,16 +51,42 @@ public class LlistaAccessos implements InLlistaAccessos {
 
     @Override
     public void actualitzaEstatAccessos() throws ExcepcioCamping {
-
+        for (Acces acces : accessos) {
+            acces.setObert(false);
+            for (Allotjament allotjament : acces.getAllotjaments()) {
+                if (allotjament.isOperatiu()) {
+                    acces.setObert(true);
+                }
+            }
+        }
     }
 
     @Override
     public int calculaAccessosNoAccessibles() throws ExcepcioCamping {
-        return 0;
+        if(accessos.isEmpty()){
+            throw new ExcepcioCamping("No hi ha accessos");
+        }
+        int comptador = 0;
+        for(Acces acces : accessos){
+            if(!acces.isAccessibilitat()){
+                comptador++;
+            }
+        }
+        return comptador;
     }
 
     @Override
     public float calculaMetresTerra() throws ExcepcioCamping {
-        return 0;
+        if(accessos.isEmpty()){
+            throw new ExcepcioCamping("No hi ha accessos");
+        }
+        float comptador = 0;
+        for(Acces acces : accessos){
+            if(acces instanceof AccesTerra){
+                comptador += ((AccesTerra) acces).getLongitud();
+
+            }
+        }
+        return comptador;
     }
 }
