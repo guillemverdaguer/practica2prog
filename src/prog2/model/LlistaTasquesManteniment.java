@@ -28,6 +28,7 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
         allotjament.tancarAllotjament(tascaManteniment);
     }
 
+
     @Override
     public void completarTascaManteniment(TascaManteniment tasca) throws ExcepcioCamping {
         if(!tasquesManteniment.contains(tasca)){
