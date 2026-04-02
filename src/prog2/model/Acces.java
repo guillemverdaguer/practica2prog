@@ -19,6 +19,8 @@ public abstract class Acces implements InAcces {
         return nom;
     }
 
+    public void setNom(String nom) { this.nom = nom; }
+
     public boolean isObert() {
         return obert;
     }
@@ -35,10 +37,6 @@ public abstract class Acces implements InAcces {
 
     @Override
     public String toString() {
-        return "Acces{" +
-                "nom='" + nom + '\'' +
-                ", obert=" + obert +
-                ", allotjaments=" + allotjaments +
-                '}';
+        return "Acces{" + "nom='" + nom + ", obert = " + obert + ", allotjaments=" + allotjaments + '}';
     }
 }

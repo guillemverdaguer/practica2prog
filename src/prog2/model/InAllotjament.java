@@ -47,10 +47,6 @@ public interface InAllotjament {
     /**
      * Enumeració que representa les diferents temporades possibles.
      */
-    public enum Temp {
-        ALTA,
-        BAIXA
-    }
 
     /**
      * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre

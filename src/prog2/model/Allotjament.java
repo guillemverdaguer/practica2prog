@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.lang.String;
 
 public abstract class Allotjament implements InAllotjament {
+    public enum Temp {
+        ALTA,
+        BAIXA
+    }
 
     private String nom;
     private String id;
@@ -76,6 +80,21 @@ public abstract class Allotjament implements InAllotjament {
         this.estadaMinimaBAIXA = estadaMinimaBAIXA_;
     }
 
+    public boolean isOperatiu() {
+        return operatiu;
+    }
+
+    public void setOperatiu(boolean operatiu) {
+        this.operatiu = operatiu;
+    }
+
+    public String getIluminacio() {
+        return iluminacio;
+    }
+
+    public void setIluminacio(String iluminacio) {
+        this.iluminacio = iluminacio;
+    }
     @Override
     public abstract boolean correcteFuncionament();
 
@@ -86,4 +105,6 @@ public abstract class Allotjament implements InAllotjament {
                 ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
                 ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) + ".";
     }
+
+
 }

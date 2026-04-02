@@ -28,7 +28,7 @@ public class CarreteraTerra extends AccesTerra {
     @Override
     public String toString() {
         return super.toString() +
-                ", tipus=CarreteraTerra, longitud=" + longitud +
+                ", tipus: CarreteraTerra, longitud: " + longitud +
                 ", amplada=" + amplada;
     }
 }

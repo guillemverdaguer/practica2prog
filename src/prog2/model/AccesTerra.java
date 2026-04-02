@@ -14,4 +14,6 @@ public abstract class AccesTerra extends Acces {
     public double getLongitud() {
         return longitud;
     }
+
+    public void setLongitud(double longitud) { this.longitud = longitud; }
 }
