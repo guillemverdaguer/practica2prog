@@ -61,7 +61,7 @@ public class TascaManteniment implements InTascaManteniment {
         this.dies = dies;
     }
 
-    public String getIluminacioAllotjament() {
+    public String getIluminacioAllotjament( ) {
          if(tipus == TipusTascaManteniment.Reparacio) {
              return "50%";
          }

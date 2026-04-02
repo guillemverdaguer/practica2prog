@@ -1,4 +1,11 @@
 package prog2.model;
 
-public class LlistaAccessos {
+import java.util.ArrayList;
+
+public class LlistaAccessos implements InLlistaAccessos {
+
+    private ArrayList<Acces> accessos;
+
+    public LlistaAccessos() { this.accessos = new ArrayList<>(); }
+
 }

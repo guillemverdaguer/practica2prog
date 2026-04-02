@@ -95,9 +95,20 @@ public abstract class Allotjament implements InAllotjament {
     public void setIluminacio(String iluminacio) {
         this.iluminacio = iluminacio;
     }
+
     @Override
     public abstract boolean correcteFuncionament();
 
+    public void tancarAllotjament(TascaManteniment tasca){
+        this.setOperatiu(false);
+        this.setIluminacio(tasca.getIluminacioAllotjament());
+    }
+
+    @Override
+    public void obrirAllotjament(){
+        this.setOperatiu(true);
+        this.setIluminacio("100");
+    }
 
     @Override
     public String toString() {

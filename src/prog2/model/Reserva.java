@@ -1,7 +1,6 @@
 package prog2.model;
 
 import java.time.LocalDate;
-import prog2.vista.ExcepcioReserva;
 
 
 public class Reserva {
