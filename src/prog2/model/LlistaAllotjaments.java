@@ -38,6 +38,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
                 resultat += allotjament.toString() + "\n";
             }
         }
+
         if (resultat.length() == 0) {
             throw new ExcepcioCamping("No hi ha cap allotjament amb aquest estat");
         }
