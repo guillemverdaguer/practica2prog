@@ -8,33 +8,25 @@ public class TascaManteniment implements InTascaManteniment {
         Desinfeccio
     };
     private int num;
-    private Allotjament allotjament;
     private TipusTascaManteniment tipus;
+    private Allotjament allotjament;
     private String data;
     private int dies;
 
-    public TascaManteniment(int num, Allotjament allotjament, TipusTascaManteniment tipus, String data, int dies) {
+    public TascaManteniment(int num, TipusTascaManteniment tipus, Allotjament allotjament, String data, int dies) {
         this.num = num;
-        this.allotjament = allotjament;
         this.tipus = tipus;
+        this.allotjament = allotjament;
         this.data = data;
         this.dies = dies;
     }
 
-    public int getNumero() {
+    public int getNum() {
         return num;
     }
 
-    public void setNumero(int num) {
+    public void setNum(int num) {
         this.num = num;
-    }
-
-    public Allotjament getAllotjament() {
-        return allotjament;
-    }
-
-    public void setAllotjament(Allotjament allotjament) {
-        this.allotjament = allotjament;
     }
 
     public TipusTascaManteniment getTipus() {
@@ -43,6 +35,14 @@ public class TascaManteniment implements InTascaManteniment {
 
     public void setTipus(TipusTascaManteniment tipus) {
         this.tipus = tipus;
+    }
+
+    public Allotjament getAllotjament() {
+        return allotjament;
+    }
+
+    public void setAllotjament(Allotjament allotjament) {
+        this.allotjament = allotjament;
     }
 
     public String getData() {
@@ -78,7 +78,7 @@ public class TascaManteniment implements InTascaManteniment {
 
     @Override
     public String toString() {
-        return "Tasca " + num + " - " + tipus + " - " + allotjament.getId();
+        return "Tasca: " + tipus + ", numero: " + num + ", id del allotjament: " + allotjament.getId();
     }
 
 
