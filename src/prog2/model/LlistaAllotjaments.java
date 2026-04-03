@@ -1,7 +1,6 @@
 package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
-
 import java.util.ArrayList;
 
 public class LlistaAllotjaments implements InLlistaAllotjaments{
@@ -47,16 +46,34 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
 
     @Override
     public boolean containsAllotjamentOperatiu() {
+        for(Allotjament allotjament :  allotjaments){
+            if(allotjament.isOperatiu()){
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean contains(Allotjament allotjament) {
+        for(Allotjament allotjament1 : allotjaments){
+            if(allotjament1.getId().equals(allotjament.getId())){
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public Allotjament getAllotjament(String id) throws ExcepcioCamping {
-        return null;
+        if(allotjaments.isEmpty()){
+            throw new ExcepcioCamping("No hi ha allotjaments");
+        }
+        for(Allotjament allotjament : allotjaments){
+            if(allotjament.getId().equals(id)){
+                return allotjament;
+            }
+        }
+        throw new ExcepcioCamping("No s'ha trobat aquest allotjament");
     }
 }
