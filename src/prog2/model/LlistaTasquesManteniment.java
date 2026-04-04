@@ -57,14 +57,6 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
         return resultat;
     }
 
-    /**
-     * Busca la tasca amb el número rebut per paràmetre i la retorna.
-     * En cas que no existeixi llança una excepció.
-     * @param num Número d'identificació de la tasca.
-     * @return Objecte de tipus TascaManteniment
-     * @throws ExcepcioCamping Aquest mètode llança una excepció si no existeix cap tasca amb el número passat per paràmetre.
-     */
-
     @Override
     public TascaManteniment getTascaManteniment(int num) throws ExcepcioCamping {
         if (tasquesManteniment.isEmpty()) {
