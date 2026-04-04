@@ -14,7 +14,14 @@ public abstract class Acces implements InAcces {
         this.allotjaments = allotjaments;
     }
 
-    // GETTERS & SETTERS
+    public void afegirAllotjament(Allotjament allotjament){
+        allotjaments.add(allotjament.getNom());
+    }
+
+    public void tancarAcces(){ obert = false; }
+
+    public void obrirAcces(){ obert = true; }
+
     public String getNom() {
         return nom;
     }

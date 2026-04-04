@@ -16,7 +16,6 @@ public abstract class Allotjament implements InAllotjament {
     private boolean operatiu;
     private String iluminacio;
 
-
     public Allotjament(String nom, String id, boolean operatiu, String iluminacio,
                        long estadaMinimaALTA, long estadaMinimaBAIXA) {
         this.nom = nom;
@@ -26,24 +25,20 @@ public abstract class Allotjament implements InAllotjament {
         this.operatiu = operatiu;
         this.iluminacio = iluminacio;
     }
-
-    public static Temp getTemporada(LocalDate data) {
-
+    //NO NECESARI A LA P2
+    /*public static Temp getTemporada(LocalDate data) {
         int dia = data.getDayOfMonth();
         int mes = data.getMonthValue();
-
         if ((mes > 3 && mes < 9) ||
                 (mes == 3 && dia >= 21) ||
                 (mes == 9 && dia <= 20)) {
-
             return Temp.ALTA;
         } else {
             return Temp.BAIXA;
         }
-    }
+    }*/
 
     // getters y setters
-
     @Override
     public String getNom() {
         return nom;
@@ -66,7 +61,6 @@ public abstract class Allotjament implements InAllotjament {
 
     @Override
     public long getEstadaMinima(Temp temp) {
-
         if (temp == Temp.ALTA) {
             return estadaMinimaALTA;
         } else {
@@ -107,7 +101,7 @@ public abstract class Allotjament implements InAllotjament {
     @Override
     public void obrirAllotjament(){
         this.setOperatiu(true);
-        this.setIluminacio("100");
+        this.setIluminacio("100%");
     }
 
     @Override
@@ -116,6 +110,4 @@ public abstract class Allotjament implements InAllotjament {
                 ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
                 ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) + ".";
     }
-
-
 }

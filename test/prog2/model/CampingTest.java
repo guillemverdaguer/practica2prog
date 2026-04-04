@@ -28,7 +28,7 @@ public class CampingTest {
     // -------------------------
     @Test
     void testConstructor() {
-        assertEquals("Camping Test", camping.getNom());
+        assertEquals("Camping Test", camping.getNomCamping());
         assertEquals(0, camping.getNumAllotjaments());
         assertEquals(0, camping.getNumClients());
         assertEquals(0, camping.getNumReserves());

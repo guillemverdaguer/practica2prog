@@ -8,39 +8,59 @@ import java.util.ArrayList;
 public class Camping implements InCamping {
 
     private String nomCamping;
-    private ArrayList<Allotjament> llistaAllotjaments;
-    private ArrayList<Client> llistaClients;
-    private LlistaReserves llistaReserves;
+    private LlistaAllotjaments llistaAllotjaments;
+    private LlistaAccessos llistaAccessos;
+    private LlistaTasquesManteniment llistaTasquesManteniment;
+    //private ArrayList<Client> llistaClients;
+    //private LlistaReserves llistaReserves;
 
     public Camping(String nomCamping) {
 
         this.nomCamping = nomCamping;
-        this.llistaAllotjaments = new ArrayList<>();
-        this.llistaClients = new ArrayList<>();
-        this.llistaReserves = new LlistaReserves();
-    }
-
-    public static InAllotjament.Temp getTemporada(LocalDate data) {
-
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-
-        if ((mes > 3 && mes < 9) ||
-                (mes == 3 && dia >= 21) ||
-                (mes == 9 && dia <= 20)) {
-
-            return InAllotjament.Temp.ALTA;
-        }
-
-        return InAllotjament.Temp.BAIXA;
+        this.llistaAllotjaments = new LlistaAllotjaments();
+        this.llistaTasquesManteniment = new LlistaTasquesManteniment();
+        this.llistaAccessos = new LlistaAccessos();
+        //this.llistaClients = new ArrayList<>();
+        // this.llistaReserves = new LlistaReserves();
     }
 
     @Override
-    public void afegirClient(String nom, String dni) {
-
-        Client client = new Client(nom, dni);
-        llistaClients.add(client);
+    public String getNomCamping() {
+        return nomCamping;
     }
+
+    public String llistarAllotjaments(String estat) throws ExcepcioCamping{
+        return llistaAllotjaments.llistarAllotjaments(estat);
+    }
+
+    public String llistarAccessos(String infoEstat) throws ExcepcioCamping{
+        if(!infoEstat.equals("Obert") & !infoEstat.equals("Tancat")){
+            throw new ExcepcioCamping("No existeix aquest estat");
+        }
+        if(infoEstat.equals("Obert")){
+            return llistaAccessos.llistarAccessos(true);
+        }
+        else{
+            return llistaAccessos.llistarAccessos(false);
+        }
+    }
+
+    public String llistarTasquesManteniment() throws ExcepcioCamping{
+        return llistaTasquesManteniment.llistarTasquesManteniment();
+    }
+
+    public void afegirTascaManteniment(int num, String tipus, String idAllotjament,
+                                       String data, int dies) throws ExcepcioCamping {
+        Allotjament allotjament = llistaAllotjaments.getAllotjament(idAllotjament);
+        llistaTasquesManteniment.afegirTascaManteniment(num, tipus, allotjament, data, dies);
+        llistaAccessos.actualitzaEstatAccessos();
+    }
+
+    public void completarTascaManteniment(int num) throws ExcepcioCamping{
+        TascaManteniment tascaManteniment = llistaTasquesManteniment.getTascaManteniment(num);
+
+    }
+
 
     @Override
     public void afegirParcela(String nom, String id, float metres, boolean connexioElectrica) {
@@ -113,6 +133,36 @@ public class Camping implements InCamping {
         return null;
     }
 
+
+
+    @Override
+    public LlistaAllotjaments getLlistaAllotjaments() {
+        return llistaAllotjaments;
+    }
+
+    @Override
+    public int getNumAllotjaments() {
+        return llistaAllotjaments.size();
+    }
+
+    public LlistaAccessos getLlistaAccessos() {
+        return llistaAccessos;
+    }
+
+    public void setLlistaAccessos(LlistaAccessos llistaAccessos) {
+        this.llistaAccessos = llistaAccessos;
+    }
+
+    public LlistaTasquesManteniment getLlistaTasquesManteniment() {
+        return llistaTasquesManteniment;
+    }
+
+    public void setLlistaTasquesManteniment(LlistaTasquesManteniment llistaTasquesManteniment) {
+        this.llistaTasquesManteniment = llistaTasquesManteniment;
+    }
+
+    //METODES DE LA P1 NO NECESSARIS
+    /*
     private Client buscarClient(String dni) {
 
         for (Client client : llistaClients) {
@@ -123,6 +173,13 @@ public class Camping implements InCamping {
         }
 
         return null;
+    }
+
+    @Override
+    public void afegirClient(String nom, String dni) {
+
+        Client client = new Client(nom, dni);
+        llistaClients.add(client);
     }
 
     @Override
@@ -144,61 +201,8 @@ public class Camping implements InCamping {
     }
 
     @Override
-    public int calculAllotjamentsOperatius() {
-
-        int comptador = 0;
-
-        for (Allotjament a : llistaAllotjaments) {
-            if (a.correcteFuncionament()) {
-                comptador++;
-            }
-        }
-
-        return comptador;
-    }
-
-    @Override
-    public Allotjament getAllotjamentEstadaMesCurta(InAllotjament.Temp temp) {
-
-        if (llistaAllotjaments.isEmpty()) {
-            return null;
-        }
-
-        Allotjament millor = llistaAllotjaments.get(0);
-
-        for (Allotjament allotjament : llistaAllotjaments) {
-
-            if (allotjament.getEstadaMinima(temp) < millor.getEstadaMinima(temp)) {
-                millor = allotjament;
-            }
-        }
-
-        return millor;
-    }
-
-    @Override
-    public String getNom() {
-        return nomCamping;
-    }
-
-    @Override
-    public LlistaReserves getLlistaReserves() {
-        return llistaReserves;
-    }
-
-    @Override
-    public ArrayList<Allotjament> getLlistaAllotjaments() {
-        return llistaAllotjaments;
-    }
-
-    @Override
     public ArrayList<Client> getLlistaClients() {
         return llistaClients;
-    }
-
-    @Override
-    public int getNumAllotjaments() {
-        return llistaAllotjaments.size();
     }
 
     @Override
@@ -212,6 +216,50 @@ public class Camping implements InCamping {
     }
 
     @Override
+    public LlistaReserves getLlistaReserves() {
+        return llistaReserves;
+    }
+
+    @Override
+    public Allotjament getAllotjamentEstadaMesCurta(InAllotjament.Temp temp) {
+        if (llistaAllotjaments.isEmpty()) {
+            return null;
+        }
+        Allotjament millor = llistaAllotjaments.get(0);
+        for (Allotjament allotjament : llistaAllotjaments) {
+            if (allotjament.getEstadaMinima(temp) < millor.getEstadaMinima(temp)) {
+                millor = allotjament;
+            }
+        }
+        return millor;
+    }
+
+    public static InAllotjament.Temp getTemporada(LocalDate data) {
+
+        int dia = data.getDayOfMonth();
+        int mes = data.getMonthValue();
+
+        if ((mes > 3 && mes < 9) ||
+                (mes == 3 && dia >= 21) ||
+                (mes == 9 && dia <= 20)) {
+
+            return InAllotjament.Temp.ALTA;
+        }
+
+        return InAllotjament.Temp.BAIXA;
+    }
+
+    @Override
+    public int calculAllotjamentsOperatius() {
+        int comptador = 0;
+        for (Allotjament a : llistaAllotjaments) {
+            if (a.correcteFuncionament()) {
+                comptador++;
+            }
+        }
+        return comptador;
+    }
+     @Override
     public int getNumAllotjamentsOperatius() {
 
         int comptador = 0;
@@ -225,4 +273,6 @@ public class Camping implements InCamping {
 
         return comptador;
     }
+     */
+
 }
