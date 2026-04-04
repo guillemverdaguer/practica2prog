@@ -40,7 +40,7 @@ public class Camping implements InCamping, Serializable {
     }
 
     public String llistarAccessos(String infoEstat) throws ExcepcioCamping {
-        if (!infoEstat.equals("Obert") & !infoEstat.equals("Tancat")) {
+        if (!infoEstat.equals("Obert") && !infoEstat.equals("Tancat")) {
             throw new ExcepcioCamping("No existeix aquest estat");
         }
         if (infoEstat.equals("Obert")) {
