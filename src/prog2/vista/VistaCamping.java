@@ -110,7 +110,7 @@ public class VistaCamping {
                         int dies = sc.nextInt();
                         sc.nextLine();
                         camping.afegirTascaManteniment(num, tipus, idAllotjament, data, dies);
-                        System.out.println("Tasca afegida correctament.");
+                        System.out.println("Tasca afegida");
                     } catch (ExcepcioCamping e) {
                         System.out.println(e.getMessage());
                     }
@@ -122,23 +122,21 @@ public class VistaCamping {
                         int num = sc.nextInt();
                         sc.nextLine();
                         camping.completarTascaManteniment(num);
-                        System.out.println("Tasca completada correctament.");
+                        System.out.println("Tasca completada");
                     } catch (ExcepcioCamping e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case CALCULAR_ACCESSOS_NO_ACCESSIBLES:
                     try {
-                        System.out.println("Número d'accessos sense accessibilitat amb vehicle: "
-                                + camping.calculaAccessosNoAccessibles());
+                        System.out.println("Número d'accessos sense accessibilitat amb vehicle: " + camping.calculaAccessosNoAccessibles());
                     } catch (ExcepcioCamping e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case CALCULAR_METRES_TERRA:
                     try {
-                        System.out.println("Total metres accessos de terra: "
-                                + camping.calculaMetresTerra());
+                        System.out.println("Total metres accessos de terra: " + camping.calculaMetresTerra());
                     } catch (ExcepcioCamping e) {
                         System.out.println(e.getMessage());
                     }
@@ -158,13 +156,13 @@ public class VistaCamping {
                         System.out.print("Ruta del fitxer: ");
                         String cami = sc.nextLine();
                         camping = Camping.load(cami);
-                        System.out.println("Camping recuperat correctament.");
+                        System.out.println("Camping recuperat correctament");
                     } catch (ExcepcioCamping e) {
                         System.out.println(e.getMessage());
                     }
                     break;
                 case SORTIR:
-                    System.out.println("Fins aviat!");
+                    System.out.println("Sortint...");
                     break;
             }
         } while (opcio != OpcionsMenu.SORTIR);
