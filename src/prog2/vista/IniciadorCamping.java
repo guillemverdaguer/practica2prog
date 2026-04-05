@@ -2,7 +2,7 @@ package prog2.vista;
 
 /**
  *
- * @author lauraigual
+ * @author Raul Mejias i Guillem Verdaguer
  */
 public class IniciadorCamping {
     

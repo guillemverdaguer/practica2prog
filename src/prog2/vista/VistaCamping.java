@@ -47,12 +47,10 @@ public class VistaCamping {
                 "Recuperar camping",
                 "Sortir"
         });
-
         OpcionsMenu opcio;
         do {
             menu.mostrarMenu();
             opcio = menu.getOpcio(sc);
-
             switch (opcio) {
                 case LLISTAR_TOTS_ALLOTJAMENTS:
                     try {
@@ -62,7 +60,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case LLISTAR_ALLOTJAMENTS_OPERATIUS:
                     try {
                         System.out.println(camping.llistarAllotjaments("operatiu"));
@@ -70,7 +67,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case LLISTAR_ALLOTJAMENTS_NO_OPERATIUS:
                     try {
                         System.out.println(camping.llistarAllotjaments("no operatiu"));
@@ -78,7 +74,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case LLISTAR_ACCESSOS_OBERTS:
                     try {
                         System.out.println(camping.llistarAccessos("Obert"));
@@ -86,7 +81,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case LLISTAR_ACCESSOS_TANCATS:
                     try {
                         System.out.println(camping.llistarAccessos("Tancat"));
@@ -94,7 +88,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case LLISTAR_TASQUES_MANTENIMENT:
                     try {
                         System.out.println(camping.llistarTasquesManteniment());
@@ -102,7 +95,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case AFEGIR_TASCA_MANTENIMENT:
                     try {
                         System.out.print("Número de la tasca: ");
@@ -123,7 +115,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case COMPLETAR_TASCA_MANTENIMENT:
                     try {
                         System.out.println(camping.llistarTasquesManteniment());
@@ -136,7 +127,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case CALCULAR_ACCESSOS_NO_ACCESSIBLES:
                     try {
                         System.out.println("Número d'accessos sense accessibilitat amb vehicle: "
@@ -145,7 +135,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case CALCULAR_METRES_TERRA:
                     try {
                         System.out.println("Total metres accessos de terra: "
@@ -154,7 +143,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case GUARDAR_CAMPING:
                     try {
                         System.out.print("Ruta del fitxer: ");
@@ -165,7 +153,6 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case RECUPERAR_CAMPING:
                     try {
                         System.out.print("Ruta del fitxer: ");
@@ -176,14 +163,11 @@ public class VistaCamping {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case SORTIR:
                     System.out.println("Fins aviat!");
                     break;
             }
-
         } while (opcio != OpcionsMenu.SORTIR);
-
         sc.close();
     }
 }
