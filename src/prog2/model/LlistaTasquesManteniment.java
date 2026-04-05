@@ -30,7 +30,7 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment {
         } catch (IllegalArgumentException e) {
             throw new ExcepcioCamping("No existeix la tasca: " + tipus);
         }
-        TascaManteniment tascaManteniment = new TascaManteniment(num, tipus, allotjament, data, dies);
+        TascaManteniment tascaManteniment = new TascaManteniment(num, tipusEnum, allotjament, data, dies);
         tasquesManteniment.add(tascaManteniment);
         allotjament.tancarAllotjament(tascaManteniment);
     }

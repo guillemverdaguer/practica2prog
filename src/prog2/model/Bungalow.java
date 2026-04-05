@@ -7,13 +7,12 @@ public class Bungalow extends Casa {
     private boolean televisio;
     private boolean aireFred;
 
-    public Bungalow(String nom, String id, boolean operatiu,
-                    String iluminacio, long estadaMinimaALTA, long estadaMinimaBAIXA,
-                    String mida, int habitacions, int placesPersones,
+    public Bungalow(String nom, String id, boolean operatiu, String iluminacio,
+                    float mida, int habitacions, int placesPersones,
                     int placesParking, boolean terrassa,
                     boolean televisio, boolean aireFred) {
 
-        super(nom, id, operatiu, iluminacio, estadaMinimaALTA, estadaMinimaBAIXA,
+        super(nom, id, operatiu, iluminacio, 4, 7,
                 mida, habitacions, placesPersones);
 
         this.placesParking = placesParking;

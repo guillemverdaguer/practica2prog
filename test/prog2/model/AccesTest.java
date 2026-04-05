@@ -7,7 +7,7 @@ import prog2.vista.ExcepcioCamping;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AccesTestBase {
+public class AccesTest {
 
     private Acces acces1;
     private Acces acces2;
@@ -35,8 +35,8 @@ public class AccesTestBase {
         assertEquals(acces2.getNom(), "Acces 2");
         assertTrue(acces1.isAccessibilitat());
         assertFalse(acces2.isAccessibilitat());
-        assertTrue(acces1.getEstat());
-        assertFalse(acces2.getEstat());
+        assertTrue(acces1.isObert());
+        assertFalse(acces2.isObert());
         assertTrue(acces1.getAAllotjaments() instanceof LlistaAllotjaments);
     }
 }

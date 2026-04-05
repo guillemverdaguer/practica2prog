@@ -58,4 +58,9 @@ public interface InAllotjament {
      * Modifica l'estat de l'allotjament a Operatiu i la il·luminació al 100%
      */
     public void obrirAllotjament();
+
+    public enum Temp {
+        ALTA,
+        BAIXA
+    }
 }

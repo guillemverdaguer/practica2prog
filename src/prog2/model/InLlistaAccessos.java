@@ -1,6 +1,8 @@
 
 package prog2.model;
 
+import prog2.vista.ExcepcioCamping;
+
 /**
  * Interfície que defineix les operacions bàsiques d'una llista d'accessos.
  */

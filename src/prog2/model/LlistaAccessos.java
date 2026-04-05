@@ -53,7 +53,7 @@ public class LlistaAccessos implements InLlistaAccessos {
     public void actualitzaEstatAccessos() throws ExcepcioCamping {
         for (Acces acces : accessos) {
             acces.setObert(false);
-            for (Allotjament allotjament : acces.getAllotjaments()) {
+            for (Allotjament allotjament : acces.getAAllotjaments().getAllotjaments()) {
                 if (allotjament.isOperatiu()) {
                     acces.setObert(true);
                 }

@@ -1,21 +1,19 @@
 package prog2.model;
 
-import java.util.ArrayList;
-
 public abstract class Acces implements InAcces {
 
-    protected String nom;
-    protected boolean obert;
-    protected ArrayList<Allotjament> allotjaments;
+    private String nom;
+    private boolean obert;
+    private LlistaAllotjaments allotjaments;
 
     public Acces(String nom, boolean obert) {
         this.nom = nom;
         this.obert = obert;
-        this.allotjaments = new ArrayList<>();
+        this.allotjaments = new LlistaAllotjaments();
     }
 
-    public void afegirAllotjament(Allotjament allotjament) {
-        allotjaments.add(allotjament);
+    public void afegirAllotjament(Allotjament allotjament) throws prog2.vista.ExcepcioCamping {
+        allotjaments.afegirAllotjament(allotjament);
     }
 
     public void tancarAcces() { obert = false; }
@@ -30,12 +28,12 @@ public abstract class Acces implements InAcces {
 
     public void setObert(boolean obert) { this.obert = obert; }
 
-    public ArrayList<Allotjament> getAllotjaments() { return allotjaments; }
+    public LlistaAllotjaments getAAllotjaments() { return allotjaments; }
 
     public abstract boolean isAccessibilitat();
 
     @Override
     public String toString() {
-        return "Acces{nom='" + nom + "', obert=" + obert + ", allotjaments=" + allotjaments + '}';
+        return "Acces: nom = " + nom + ", obert = " + obert + ", allotjaments = " + allotjaments + '}';
     }
 }

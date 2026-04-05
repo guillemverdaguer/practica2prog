@@ -39,7 +39,7 @@ public interface InAcces {
      * Retorna l'estat de l'accés (obert o tancat)
      * @return
      */
-    public boolean getEstat();
+    public boolean isObert();
 
     /**
      * Retorna la llista d'allotjaments associats a l'accés

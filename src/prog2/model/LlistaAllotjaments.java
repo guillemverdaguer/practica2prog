@@ -9,6 +9,10 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
 
     public LlistaAllotjaments() { this.allotjaments = new ArrayList<>(); }
 
+    public ArrayList<Allotjament> getAllotjaments() { return allotjaments; }
+
+    public void setAllotjaments(ArrayList<Allotjament> allotjaments) { this.allotjaments = allotjaments; }
+
     @Override
     public void afegirAllotjament(Allotjament allotjament) throws ExcepcioCamping {
         for(Allotjament allotjament1 : allotjaments){

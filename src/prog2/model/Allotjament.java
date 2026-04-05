@@ -4,10 +4,6 @@ import java.time.LocalDate;
 import java.lang.String;
 
 public abstract class Allotjament implements InAllotjament {
-    public enum Temp {
-        ALTA,
-        BAIXA
-    }
 
     private String nom;
     private String id;
@@ -25,20 +21,7 @@ public abstract class Allotjament implements InAllotjament {
         this.operatiu = operatiu;
         this.iluminacio = iluminacio;
     }
-    //NO NECESARI A LA P2
-    /*public static Temp getTemporada(LocalDate data) {
-        int dia = data.getDayOfMonth();
-        int mes = data.getMonthValue();
-        if ((mes > 3 && mes < 9) ||
-                (mes == 3 && dia >= 21) ||
-                (mes == 9 && dia <= 20)) {
-            return Temp.ALTA;
-        } else {
-            return Temp.BAIXA;
-        }
-    }*/
 
-    // getters y setters
     @Override
     public String getNom() {
         return nom;
@@ -59,7 +42,6 @@ public abstract class Allotjament implements InAllotjament {
         this.id = id;
     }
 
-    @Override
     public long getEstadaMinima(Temp temp) {
         if (temp == Temp.ALTA) {
             return estadaMinimaALTA;
@@ -90,7 +72,6 @@ public abstract class Allotjament implements InAllotjament {
         this.iluminacio = iluminacio;
     }
 
-    @Override
     public abstract boolean correcteFuncionament();
 
     public void tancarAllotjament(TascaManteniment tasca){
@@ -107,7 +88,7 @@ public abstract class Allotjament implements InAllotjament {
     @Override
     public String toString() {
         return "Nom=" + getNom() + ", Id=" + getId() +
-                ", estada mínima en temp ALTA: " + getEstadaMinima(Temp.ALTA) +
-                ", estada mínima en temp BAIXA: " + getEstadaMinima(Temp.BAIXA) + ".";
+                ", estada mínima en temp ALTA: " + getEstadaMinima(InAllotjament.Temp.ALTA) +
+                ", estada mínima en temp BAIXA: " + getEstadaMinima(InAllotjament.Temp.BAIXA) + ".";
     }
 }
