@@ -1,34 +1,23 @@
 package prog2.model;
 
-import java.util.ArrayList;
-
 public class CarreteraTerra extends AccesTerra {
 
-    private double amplada;
+    private float amplada;
 
-    public CarreteraTerra(String nom, boolean obert, ArrayList<String> allotjaments,
-                          double longitud, double amplada) {
-        super(nom, obert, allotjaments, longitud);
+    public CarreteraTerra(String nom, boolean obert, float longitud, float amplada) {
+        super(nom, obert, longitud);
         this.amplada = amplada;
     }
 
-    public double getAmplada() {
-        return amplada;
-    }
+    public float getAmplada() { return amplada; }
 
-    public void setAmplada(double amplada) {
-        this.amplada = amplada;
-    }
+    public void setAmplada(float amplada) { this.amplada = amplada; }
 
     @Override
-    public boolean isAccessibilitat() {
-        return true; // carretera de tierra → sí vehículos
-    }
+    public boolean isAccessibilitat() { return true; }
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", tipus: CarreteraTerra, longitud: " + longitud +
-                ", amplada=" + amplada;
+        return super.toString() + ", tipus=CarreteraTerra, longitud=" + longitud + ", amplada=" + amplada;
     }
 }

@@ -1,21 +1,16 @@
 package prog2.model;
 
-import java.util.ArrayList;
-
 public class CamiTerra extends AccesTerra {
 
-    public CamiTerra(String nom, boolean obert, ArrayList<String> allotjaments, double longitud) {
-        super(nom, obert, allotjaments, longitud);
+    public CamiTerra(String nom, boolean obert, float longitud) {
+        super(nom, obert, longitud);
     }
 
     @Override
-    public boolean isAccessibilitat() {
-        return false; // camí de terra → no vehículos
-    }
+    public boolean isAccessibilitat() { return false; }
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", tipus=CamiTerra, longitud=" + longitud;
+        return super.toString() + ", tipus = CamiTerra, longitud = " + longitud;
     }
 }

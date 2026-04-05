@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public abstract class AccesTerra extends Acces {
 
-    protected double longitud;
+    protected float longitud;
 
-    public AccesTerra(String nom, boolean obert, ArrayList<String> allotjaments, double longitud) {
-        super(nom, obert, allotjaments);
+    public AccesTerra(String nom, boolean obert, float longitud) {
+        super(nom, obert);
         this.longitud = longitud;
     }
 
-    public double getLongitud() {
+    public float getLongitud() {
         return longitud;
     }
 
-    public void setLongitud(double longitud) { this.longitud = longitud; }
+    public void setLongitud(float longitud) { this.longitud = longitud; }
 }

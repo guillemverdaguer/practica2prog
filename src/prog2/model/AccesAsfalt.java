@@ -1,17 +1,19 @@
 package prog2.model;
 
-import java.util.ArrayList;
-
 public abstract class AccesAsfalt extends Acces {
 
-    protected double metresQuadrats;
+    protected float metresQuadrats;
 
-    public AccesAsfalt(String nom, boolean obert, ArrayList<String> allotjaments, double metresQuadrats) {
-        super(nom, obert, allotjaments);
+    public AccesAsfalt(String nom, boolean obert, float metresQuadrats) {
+        super(nom, obert);
         this.metresQuadrats = metresQuadrats;
     }
 
-    public double getMetresQuadrats() {
+    public float getMetresQuadrats() {
         return metresQuadrats;
+    }
+
+    public void setMetresQuadrats(float metresQuadrats) {
+        this.metresQuadrats = metresQuadrats;
     }
 }
